@@ -1,0 +1,9 @@
+{"comment":{"id":3615,
+    "createdAt":"2022-01-18T18:58:26.441Z",
+    "updatedAt":"2022-01-18T18:58:26.441Z",
+    "body":"Comentario de ejemplo1",
+    "author":{"username":"Test23",
+        "bio":null,
+    "image":"https://api.realworld.io/images/smiley-cyrus.jpeg","following":false}
+    }
+}

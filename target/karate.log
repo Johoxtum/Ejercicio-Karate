@@ -1,0 +1,623 @@
+07:59:51.986 [com.intuit.karate.cli.Main.main()] INFO  com.intuit.karate - Karate version: 1.1.0
+07:59:52.362 [com.intuit.karate.cli.Main.main()] DEBUG com.intuit.karate.Suite - [config] classpath:karate-config.js
+07:59:52.421 [com.intuit.karate.cli.Main.main()] INFO  c.intuit.karate.core.FeatureRuntime - found scenario at line: 115
+07:59:54.036 [com.intuit.karate.cli.Main.main()] INFO  com.intuit.karate - karate.env system property was: null 
+07:59:54.913 [com.intuit.karate.cli.Main.main()] DEBUG com.intuit.karate - request:
+1 > POST https://api.realworld.io/api/users/login
+1 > Content-Type: application/json; charset=UTF-8
+1 > Content-Length: 61
+1 > Host: api.realworld.io
+1 > Connection: Keep-Alive
+1 > User-Agent: Apache-HttpClient/4.5.13 (Java/1.8.0_301)
+1 > Accept-Encoding: gzip,deflate
+{"user":{"email":"Test13@gmail.com","password":"Manzana123"}}
+
+07:59:55.715 [com.intuit.karate.cli.Main.main()] DEBUG com.intuit.karate - response time in milliseconds: 797
+1 < 200
+1 < Date: Wed, 19 Jan 2022 12:59:56 GMT
+1 < Content-Type: application/json; charset=utf-8
+1 < Transfer-Encoding: chunked
+1 < Connection: keep-alive
+1 < x-powered-by: Express
+1 < access-control-allow-origin: *
+1 < etag: W/"1dc-eQjhie8clpYzYKC2guaXIpKZbtg"
+1 < via: 1.1 vegur
+1 < CF-Cache-Status: DYNAMIC
+1 < Expect-CT: max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"
+1 < Report-To: {"endpoints":[{"url":"https:\/\/a.nel.cloudflare.com\/report\/v3?s=E9%2BpPRxO6LaHt0qjH8QNn4xaE%2FDb7JdMU08BprIuny%2B4PyO61rvVqIBRrYlqALYi8SBW0xF%2BUiwSWSOoKNEgmmVe%2B7QGzScl0PScxsSFfByC8%2B1JcjcYTfF8y9aL3xJxuYaQ"}],"group":"cf-nel","max_age":604800}
+1 < NEL: {"success_fraction":0,"report_to":"cf-nel","max_age":604800}
+1 < Server: cloudflare
+1 < CF-RAY: 6d003e3a99d52275-MIA
+1 < alt-svc: h3=":443"; ma=86400, h3-29=":443"; ma=86400
+{"user":{"email":"Test13@gmail.com","username":"Test23","bio":null,"image":null,"token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6IlRlc3QxM0BnbWFpbC5jb20iLCJ1c2VybmFtZSI6IlRlc3QyMyIsInBhc3N3b3JkIjoiJDJhJDEwJHBEUzc2aS5xU2pJZXRKSy9kb2dCQU85WDFnQU9tVDZ5Q01LaUFGQkNMNDl5bzJxMHgzNjAyIiwiYmlvIjpudWxsLCJpbWFnZSI6Imh0dHBzOi8vYXBpLnJlYWx3b3JsZC5pby9pbWFnZXMvc21pbGV5LWN5cnVzLmpwZWciLCJpYXQiOjE2NDI1OTcxOTYsImV4cCI6MTY0Nzc4MTE5Nn0.SvGqbdNHkV_eGIZV-P4V-kwgvKwo1Z3HISs7WWl3S5I"}}
+07:59:55.730 [com.intuit.karate.cli.Main.main()] INFO  com.intuit.karate - [print] eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6IlRlc3QxM0BnbWFpbC5jb20iLCJ1c2VybmFtZSI6IlRlc3QyMyIsInBhc3N3b3JkIjoiJDJhJDEwJHBEUzc2aS5xU2pJZXRKSy9kb2dCQU85WDFnQU9tVDZ5Q01LaUFGQkNMNDl5bzJxMHgzNjAyIiwiYmlvIjpudWxsLCJpbWFnZSI6Imh0dHBzOi8vYXBpLnJlYWx3b3JsZC5pby9pbWFnZXMvc21pbGV5LWN5cnVzLmpwZWciLCJpYXQiOjE2NDI1OTcxOTYsImV4cCI6MTY0Nzc4MTE5Nn0.SvGqbdNHkV_eGIZV-P4V-kwgvKwo1Z3HISs7WWl3S5I 
+07:59:55.988 [com.intuit.karate.cli.Main.main()] DEBUG com.intuit.karate - request:
+1 > GET https://api.realworld.io/api/articles?offset=0&limit=10
+1 > Authorization: Token eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6IlRlc3QxM0BnbWFpbC5jb20iLCJ1c2VybmFtZSI6IlRlc3QyMyIsInBhc3N3b3JkIjoiJDJhJDEwJHBEUzc2aS5xU2pJZXRKSy9kb2dCQU85WDFnQU9tVDZ5Q01LaUFGQkNMNDl5bzJxMHgzNjAyIiwiYmlvIjpudWxsLCJpbWFnZSI6Imh0dHBzOi8vYXBpLnJlYWx3b3JsZC5pby9pbWFnZXMvc21pbGV5LWN5cnVzLmpwZWciLCJpYXQiOjE2NDI1OTcxOTYsImV4cCI6MTY0Nzc4MTE5Nn0.SvGqbdNHkV_eGIZV-P4V-kwgvKwo1Z3HISs7WWl3S5I
+1 > Host: api.realworld.io
+1 > Connection: Keep-Alive
+1 > User-Agent: Apache-HttpClient/4.5.13 (Java/1.8.0_301)
+1 > Accept-Encoding: gzip,deflate
+
+
+07:59:56.326 [com.intuit.karate.cli.Main.main()] DEBUG com.intuit.karate - response time in milliseconds: 332
+1 < 200
+1 < Date: Wed, 19 Jan 2022 12:59:56 GMT
+1 < Content-Type: application/json; charset=utf-8
+1 < Transfer-Encoding: chunked
+1 < Connection: keep-alive
+1 < x-powered-by: Express
+1 < access-control-allow-origin: *
+1 < etag: W/"fe4-v30IZwO1xD29IXmmMmxl2FgY1og"
+1 < via: 1.1 vegur
+1 < CF-Cache-Status: DYNAMIC
+1 < Expect-CT: max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"
+1 < Report-To: {"endpoints":[{"url":"https:\/\/a.nel.cloudflare.com\/report\/v3?s=w2Cs0Jgc2Dma%2F%2BTnEnAI5kBBMM6gmIFe6hspIY4HBMaUjffvA%2FImJbs43IltZCf7F2zixyV1SIvVNe%2Fa8tI1Kju7ixZvHQLZ5mpv%2B%2B2zgfpe4fIHfbWttrdiVHzjbfoGjXwY"}],"group":"cf-nel","max_age":604800}
+1 < NEL: {"success_fraction":0,"report_to":"cf-nel","max_age":604800}
+1 < Server: cloudflare
+1 < CF-RAY: 6d003e3edcaf67d8-MIA
+1 < alt-svc: h3=":443"; ma=86400, h3-29=":443"; ma=86400
+{"articles":[{"slug":"Horton-Redfort-11096","title":"Horton Redfort","description":"Braavos","body":"Once you’ve accepted your flaws, no one can use them against you.","createdAt":"2022-01-14T19:00:18.887Z","updatedAt":"2022-01-14T19:00:18.887Z","tagList":["Otro articulo 2"],"author":{"username":"Test23","bio":null,"image":"https://api.realworld.io/images/smiley-cyrus.jpeg","following":false},"favoritesCount":1,"favorited":true},{"slug":"Ezzara-11096","title":"Ezzara","description":"New Ghis","body":"Laughter is poison to fear.","createdAt":"2022-01-14T16:34:44.567Z","updatedAt":"2022-01-14T16:34:44.567Z","tagList":["Otro articulo 2"],"author":{"username":"Test23","bio":null,"image":"https://api.realworld.io/images/smiley-cyrus.jpeg","following":false},"favoritesCount":0,"favorited":false},{"slug":"Tristifer-Botley-11096","title":"Tristifer Botley","description":"Bhorash","body":"Some old wounds never truly heal, and bleed again at the slightest word.","createdAt":"2022-01-14T16:26:18.168Z","updatedAt":"2022-01-14T16:26:18.168Z","tagList":["Otro articulo 2"],"author":{"username":"Test23","bio":null,"image":"https://api.realworld.io/images/smiley-cyrus.jpeg","following":false},"favoritesCount":0,"favorited":false},{"slug":"Willam-Wells-11096","title":"Willam Wells","description":"Lys","body":"A lion doesn't concern itself with the opinion of sheep.","createdAt":"2022-01-14T16:25:42.277Z","updatedAt":"2022-01-14T16:25:42.277Z","tagList":["Otro articulo 2"],"author":{"username":"Test23","bio":null,"image":"https://api.realworld.io/images/smiley-cyrus.jpeg","following":false},"favoritesCount":0,"favorited":false},{"slug":"Mudge-11096","title":"Mudge","description":"Astapor","body":"Fear cuts deeper than swords.","createdAt":"2022-01-14T16:22:42.403Z","updatedAt":"2022-01-14T16:22:42.403Z","tagList":["Otro articulo 2"],"author":{"username":"Test23","bio":null,"image":"https://api.realworld.io/images/smiley-cyrus.jpeg","following":false},"favoritesCount":0,"favorited":false},{"slug":"Olenna-Redwyne-11096","title":"Olenna Redwyne","description":"New Ghis","body":"Hodor? Hodor.","createdAt":"2022-01-14T16:21:23.920Z","updatedAt":"2022-01-14T16:21:23.920Z","tagList":["Otro articulo 2"],"author":{"username":"Test23","bio":null,"image":"https://api.realworld.io/images/smiley-cyrus.jpeg","following":false},"favoritesCount":0,"favorited":false},{"slug":"Bella-11096","title":"Bella","description":"Tyria","body":"Never forget who you are. The rest of the world won't. Wear it like an armor and it can never be used against you.","createdAt":"2022-01-14T16:15:17.257Z","updatedAt":"2022-01-14T16:15:17.257Z","tagList":["Otro articulo 2"],"author":{"username":"Test23","bio":null,"image":"https://api.realworld.io/images/smiley-cyrus.jpeg","following":false},"favoritesCount":0,"favorited":false},{"slug":"Martyn-Mullendore-11096","title":"Martyn Mullendore","description":"Norvos","body":"There are no heroes...in life, the monsters win.","createdAt":"2022-01-14T16:12:00.629Z","updatedAt":"2022-01-14T16:12:00.629Z","tagList":["Otro articulo 2"],"author":{"username":"Test23","bio":null,"image":"https://api.realworld.io/images/smiley-cyrus.jpeg","following":false},"favoritesCount":0,"favorited":false},{"slug":"Grazdan-mo-Eraz-11096","title":"Grazdan mo Eraz","description":"Asshai","body":"A lion doesn't concern itself with the opinion of sheep.","createdAt":"2022-01-14T16:11:06.613Z","updatedAt":"2022-01-14T16:11:06.613Z","tagList":["Otro articulo 2"],"author":{"username":"Test23","bio":null,"image":"https://api.realworld.io/images/smiley-cyrus.jpeg","following":false},"favoritesCount":0,"favorited":false},{"slug":"Articulo-prueba-2-11096","title":"Articulo prueba 2","description":"Esta es una descripcion 2","body":"Esta es una prueba 2","createdAt":"2022-01-14T15:07:41.140Z","updatedAt":"2022-01-14T15:07:41.140Z","tagList":["Otro articulo 2"],"author":{"username":"Test23","bio":null,"image":"https://api.realworld.io/images/smiley-cyrus.jpeg","following":false},"favoritesCount":0,"favorited":false}],"articlesCount":17}
+07:59:56.338 [com.intuit.karate.cli.Main.main()] INFO  com.intuit.karate - [print] {
+  "articles": [
+    {
+      "slug": "Horton-Redfort-11096",
+      "title": "Horton Redfort",
+      "description": "Braavos",
+      "body": "Once you\u2019ve accepted your flaws, no one can use them against you.",
+      "createdAt": "2022-01-14T19:00:18.887Z",
+      "updatedAt": "2022-01-14T19:00:18.887Z",
+      "tagList": [
+        "Otro articulo 2"
+      ],
+      "author": {
+        "username": "Test23",
+        "bio": null,
+        "image": "https://api.realworld.io/images/smiley-cyrus.jpeg",
+        "following": false
+      },
+      "favoritesCount": 1,
+      "favorited": true
+    },
+    {
+      "slug": "Ezzara-11096",
+      "title": "Ezzara",
+      "description": "New Ghis",
+      "body": "Laughter is poison to fear.",
+      "createdAt": "2022-01-14T16:34:44.567Z",
+      "updatedAt": "2022-01-14T16:34:44.567Z",
+      "tagList": [
+        "Otro articulo 2"
+      ],
+      "author": {
+        "username": "Test23",
+        "bio": null,
+        "image": "https://api.realworld.io/images/smiley-cyrus.jpeg",
+        "following": false
+      },
+      "favoritesCount": 0,
+      "favorited": false
+    },
+    {
+      "slug": "Tristifer-Botley-11096",
+      "title": "Tristifer Botley",
+      "description": "Bhorash",
+      "body": "Some old wounds never truly heal, and bleed again at the slightest word.",
+      "createdAt": "2022-01-14T16:26:18.168Z",
+      "updatedAt": "2022-01-14T16:26:18.168Z",
+      "tagList": [
+        "Otro articulo 2"
+      ],
+      "author": {
+        "username": "Test23",
+        "bio": null,
+        "image": "https://api.realworld.io/images/smiley-cyrus.jpeg",
+        "following": false
+      },
+      "favoritesCount": 0,
+      "favorited": false
+    },
+    {
+      "slug": "Willam-Wells-11096",
+      "title": "Willam Wells",
+      "description": "Lys",
+      "body": "A lion doesn't concern itself with the opinion of sheep.",
+      "createdAt": "2022-01-14T16:25:42.277Z",
+      "updatedAt": "2022-01-14T16:25:42.277Z",
+      "tagList": [
+        "Otro articulo 2"
+      ],
+      "author": {
+        "username": "Test23",
+        "bio": null,
+        "image": "https://api.realworld.io/images/smiley-cyrus.jpeg",
+        "following": false
+      },
+      "favoritesCount": 0,
+      "favorited": false
+    },
+    {
+      "slug": "Mudge-11096",
+      "title": "Mudge",
+      "description": "Astapor",
+      "body": "Fear cuts deeper than swords.",
+      "createdAt": "2022-01-14T16:22:42.403Z",
+      "updatedAt": "2022-01-14T16:22:42.403Z",
+      "tagList": [
+        "Otro articulo 2"
+      ],
+      "author": {
+        "username": "Test23",
+        "bio": null,
+        "image": "https://api.realworld.io/images/smiley-cyrus.jpeg",
+        "following": false
+      },
+      "favoritesCount": 0,
+      "favorited": false
+    },
+    {
+      "slug": "Olenna-Redwyne-11096",
+      "title": "Olenna Redwyne",
+      "description": "New Ghis",
+      "body": "Hodor? Hodor.",
+      "createdAt": "2022-01-14T16:21:23.920Z",
+      "updatedAt": "2022-01-14T16:21:23.920Z",
+      "tagList": [
+        "Otro articulo 2"
+      ],
+      "author": {
+        "username": "Test23",
+        "bio": null,
+        "image": "https://api.realworld.io/images/smiley-cyrus.jpeg",
+        "following": false
+      },
+      "favoritesCount": 0,
+      "favorited": false
+    },
+    {
+      "slug": "Bella-11096",
+      "title": "Bella",
+      "description": "Tyria",
+      "body": "Never forget who you are. The rest of the world won't. Wear it like an armor and it can never be used against you.",
+      "createdAt": "2022-01-14T16:15:17.257Z",
+      "updatedAt": "2022-01-14T16:15:17.257Z",
+      "tagList": [
+        "Otro articulo 2"
+      ],
+      "author": {
+        "username": "Test23",
+        "bio": null,
+        "image": "https://api.realworld.io/images/smiley-cyrus.jpeg",
+        "following": false
+      },
+      "favoritesCount": 0,
+      "favorited": false
+    },
+    {
+      "slug": "Martyn-Mullendore-11096",
+      "title": "Martyn Mullendore",
+      "description": "Norvos",
+      "body": "There are no heroes...in life, the monsters win.",
+      "createdAt": "2022-01-14T16:12:00.629Z",
+      "updatedAt": "2022-01-14T16:12:00.629Z",
+      "tagList": [
+        "Otro articulo 2"
+      ],
+      "author": {
+        "username": "Test23",
+        "bio": null,
+        "image": "https://api.realworld.io/images/smiley-cyrus.jpeg",
+        "following": false
+      },
+      "favoritesCount": 0,
+      "favorited": false
+    },
+    {
+      "slug": "Grazdan-mo-Eraz-11096",
+      "title": "Grazdan mo Eraz",
+      "description": "Asshai",
+      "body": "A lion doesn't concern itself with the opinion of sheep.",
+      "createdAt": "2022-01-14T16:11:06.613Z",
+      "updatedAt": "2022-01-14T16:11:06.613Z",
+      "tagList": [
+        "Otro articulo 2"
+      ],
+      "author": {
+        "username": "Test23",
+        "bio": null,
+        "image": "https://api.realworld.io/images/smiley-cyrus.jpeg",
+        "following": false
+      },
+      "favoritesCount": 0,
+      "favorited": false
+    },
+    {
+      "slug": "Articulo-prueba-2-11096",
+      "title": "Articulo prueba 2",
+      "description": "Esta es una descripcion 2",
+      "body": "Esta es una prueba 2",
+      "createdAt": "2022-01-14T15:07:41.140Z",
+      "updatedAt": "2022-01-14T15:07:41.140Z",
+      "tagList": [
+        "Otro articulo 2"
+      ],
+      "author": {
+        "username": "Test23",
+        "bio": null,
+        "image": "https://api.realworld.io/images/smiley-cyrus.jpeg",
+        "following": false
+      },
+      "favoritesCount": 0,
+      "favorited": false
+    }
+  ],
+  "articlesCount": 17
+}
+ 
+07:59:56.381 [com.intuit.karate.cli.Main.main()] INFO  com.intuit.karate - [print] Horton-Redfort-11096 
+07:59:56.385 [com.intuit.karate.cli.Main.main()] DEBUG com.intuit.karate - request:
+2 > GET https://api.realworld.io/api/articles/Horton-Redfort-11096/comments
+2 > Authorization: Token eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6IlRlc3QxM0BnbWFpbC5jb20iLCJ1c2VybmFtZSI6IlRlc3QyMyIsInBhc3N3b3JkIjoiJDJhJDEwJHBEUzc2aS5xU2pJZXRKSy9kb2dCQU85WDFnQU9tVDZ5Q01LaUFGQkNMNDl5bzJxMHgzNjAyIiwiYmlvIjpudWxsLCJpbWFnZSI6Imh0dHBzOi8vYXBpLnJlYWx3b3JsZC5pby9pbWFnZXMvc21pbGV5LWN5cnVzLmpwZWciLCJpYXQiOjE2NDI1OTcxOTYsImV4cCI6MTY0Nzc4MTE5Nn0.SvGqbdNHkV_eGIZV-P4V-kwgvKwo1Z3HISs7WWl3S5I
+2 > Host: api.realworld.io
+2 > Connection: Keep-Alive
+2 > User-Agent: Apache-HttpClient/4.5.13 (Java/1.8.0_301)
+2 > Accept-Encoding: gzip,deflate
+
+
+07:59:56.714 [com.intuit.karate.cli.Main.main()] DEBUG com.intuit.karate - response time in milliseconds: 327
+2 < 200
+2 < Date: Wed, 19 Jan 2022 12:59:57 GMT
+2 < Content-Type: application/json; charset=utf-8
+2 < Transfer-Encoding: chunked
+2 < Connection: keep-alive
+2 < x-powered-by: Express
+2 < access-control-allow-origin: *
+2 < etag: W/"4c8-JemkujFlk6XiUkl8iYtBM/rqap8"
+2 < via: 1.1 vegur
+2 < CF-Cache-Status: DYNAMIC
+2 < Expect-CT: max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"
+2 < Report-To: {"endpoints":[{"url":"https:\/\/a.nel.cloudflare.com\/report\/v3?s=BNhirZoOlaisjxQCmSiL1HXkXJhu1eiSzvLZx22wRKbZ5%2Fj9YS39J89SDKfMOp9psvliBPXNGKM0CO3T4f%2BEkZrfe869PJPWODxO3sOiD7MF4Ob3Bfm2t8ar93tNa0WTXitG"}],"group":"cf-nel","max_age":604800}
+2 < NEL: {"success_fraction":0,"report_to":"cf-nel","max_age":604800}
+2 < Server: cloudflare
+2 < CF-RAY: 6d003e419f3b8da2-MIA
+2 < alt-svc: h3=":443"; ma=86400, h3-29=":443"; ma=86400
+{"comments":[{"id":3866,"createdAt":"2022-01-18T21:38:46.021Z","updatedAt":"2022-01-18T21:38:46.021Z","body":"Comentario de ejemplo1","author":{"username":"Test23","bio":null,"image":"https://api.realworld.io/images/smiley-cyrus.jpeg","following":false}},{"id":3869,"createdAt":"2022-01-18T21:55:48.128Z","updatedAt":"2022-01-18T21:55:48.128Z","body":"Comentario de ejemplo1","author":{"username":"Test23","bio":null,"image":"https://api.realworld.io/images/smiley-cyrus.jpeg","following":false}},{"id":3871,"createdAt":"2022-01-18T22:00:32.345Z","updatedAt":"2022-01-18T22:00:32.345Z","body":"Comentario de ejemplo1","author":{"username":"Test23","bio":null,"image":"https://api.realworld.io/images/smiley-cyrus.jpeg","following":false}},{"id":3873,"createdAt":"2022-01-18T22:02:02.814Z","updatedAt":"2022-01-18T22:02:02.814Z","body":"Comentario de ejemplo1","author":{"username":"Test23","bio":null,"image":"https://api.realworld.io/images/smiley-cyrus.jpeg","following":false}},{"id":3875,"createdAt":"2022-01-18T22:03:26.467Z","updatedAt":"2022-01-18T22:03:26.467Z","body":"Comentario de ejemplo1","author":{"username":"Test23","bio":null,"image":"https://api.realworld.io/images/smiley-cyrus.jpeg","following":false}}]}
+07:59:56.722 [com.intuit.karate.cli.Main.main()] INFO  com.intuit.karate - [print] {
+  "comments": [
+    {
+      "id": 3866,
+      "createdAt": "2022-01-18T21:38:46.021Z",
+      "updatedAt": "2022-01-18T21:38:46.021Z",
+      "body": "Comentario de ejemplo1",
+      "author": {
+        "username": "Test23",
+        "bio": null,
+        "image": "https://api.realworld.io/images/smiley-cyrus.jpeg",
+        "following": false
+      }
+    },
+    {
+      "id": 3869,
+      "createdAt": "2022-01-18T21:55:48.128Z",
+      "updatedAt": "2022-01-18T21:55:48.128Z",
+      "body": "Comentario de ejemplo1",
+      "author": {
+        "username": "Test23",
+        "bio": null,
+        "image": "https://api.realworld.io/images/smiley-cyrus.jpeg",
+        "following": false
+      }
+    },
+    {
+      "id": 3871,
+      "createdAt": "2022-01-18T22:00:32.345Z",
+      "updatedAt": "2022-01-18T22:00:32.345Z",
+      "body": "Comentario de ejemplo1",
+      "author": {
+        "username": "Test23",
+        "bio": null,
+        "image": "https://api.realworld.io/images/smiley-cyrus.jpeg",
+        "following": false
+      }
+    },
+    {
+      "id": 3873,
+      "createdAt": "2022-01-18T22:02:02.814Z",
+      "updatedAt": "2022-01-18T22:02:02.814Z",
+      "body": "Comentario de ejemplo1",
+      "author": {
+        "username": "Test23",
+        "bio": null,
+        "image": "https://api.realworld.io/images/smiley-cyrus.jpeg",
+        "following": false
+      }
+    },
+    {
+      "id": 3875,
+      "createdAt": "2022-01-18T22:03:26.467Z",
+      "updatedAt": "2022-01-18T22:03:26.467Z",
+      "body": "Comentario de ejemplo1",
+      "author": {
+        "username": "Test23",
+        "bio": null,
+        "image": "https://api.realworld.io/images/smiley-cyrus.jpeg",
+        "following": false
+      }
+    }
+  ]
+}
+ 
+07:59:56.779 [com.intuit.karate.cli.Main.main()] INFO  com.intuit.karate - [print] 5 
+07:59:56.782 [com.intuit.karate.cli.Main.main()] DEBUG com.intuit.karate - request:
+3 > POST https://api.realworld.io/api/articles/Horton-Redfort-11096/comments
+3 > Authorization: Token eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6IlRlc3QxM0BnbWFpbC5jb20iLCJ1c2VybmFtZSI6IlRlc3QyMyIsInBhc3N3b3JkIjoiJDJhJDEwJHBEUzc2aS5xU2pJZXRKSy9kb2dCQU85WDFnQU9tVDZ5Q01LaUFGQkNMNDl5bzJxMHgzNjAyIiwiYmlvIjpudWxsLCJpbWFnZSI6Imh0dHBzOi8vYXBpLnJlYWx3b3JsZC5pby9pbWFnZXMvc21pbGV5LWN5cnVzLmpwZWciLCJpYXQiOjE2NDI1OTcxOTYsImV4cCI6MTY0Nzc4MTE5Nn0.SvGqbdNHkV_eGIZV-P4V-kwgvKwo1Z3HISs7WWl3S5I
+3 > Content-Type: application/json; charset=UTF-8
+3 > Content-Length: 294
+3 > Host: api.realworld.io
+3 > Connection: Keep-Alive
+3 > User-Agent: Apache-HttpClient/4.5.13 (Java/1.8.0_301)
+3 > Accept-Encoding: gzip,deflate
+{"comment":{"id":3615,"createdAt":"2022-01-18T18:58:26.441Z","updatedAt":"2022-01-18T18:58:26.441Z","body":"Comentario de ejemplo1","author":{"username":"Test23","bio":null,"image":"https:\/\/api.realworld.io\/images\/smiley-cyrus.jpeg","following":false}},"article":{"description":"Sunspear"}}
+
+07:59:57.113 [com.intuit.karate.cli.Main.main()] DEBUG com.intuit.karate - response time in milliseconds: 329
+3 < 200
+3 < Date: Wed, 19 Jan 2022 12:59:57 GMT
+3 < Content-Type: application/json; charset=utf-8
+3 < Transfer-Encoding: chunked
+3 < Connection: keep-alive
+3 < x-powered-by: Express
+3 < access-control-allow-origin: *
+3 < etag: W/"fd-+4Myrw5StxiO0eoKwQqOruyq77k"
+3 < via: 1.1 vegur
+3 < CF-Cache-Status: DYNAMIC
+3 < Expect-CT: max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"
+3 < Report-To: {"endpoints":[{"url":"https:\/\/a.nel.cloudflare.com\/report\/v3?s=beAKZvXNYHa02L9Ry6JPEnPm6u4UEoP0VyryKeLYfiaXvMx0mMRHQ2U1Cv6QvygHNkcAjgUwZoZ58unp6c3mpFJ5n3i5EMGAInfWcLxGNA7ayUkxSnsL84j3PrZ6sIxY0wlU"}],"group":"cf-nel","max_age":604800}
+3 < NEL: {"success_fraction":0,"report_to":"cf-nel","max_age":604800}
+3 < Server: cloudflare
+3 < CF-RAY: 6d003e4419fa21cd-MIA
+3 < alt-svc: h3=":443"; ma=86400, h3-29=":443"; ma=86400
+{"comment":{"id":3982,"createdAt":"2022-01-19T12:59:57.505Z","updatedAt":"2022-01-19T12:59:57.505Z","body":"Comentario de ejemplo1","author":{"username":"Test23","bio":null,"image":"https://api.realworld.io/images/smiley-cyrus.jpeg","following":false}}}
+07:59:57.118 [com.intuit.karate.cli.Main.main()] INFO  com.intuit.karate - [print] {
+  "comment": {
+    "id": 3982,
+    "createdAt": "2022-01-19T12:59:57.505Z",
+    "updatedAt": "2022-01-19T12:59:57.505Z",
+    "body": "Comentario de ejemplo1",
+    "author": {
+      "username": "Test23",
+      "bio": null,
+      "image": "https://api.realworld.io/images/smiley-cyrus.jpeg",
+      "following": false
+    }
+  }
+}
+ 
+07:59:57.129 [com.intuit.karate.cli.Main.main()] DEBUG com.intuit.karate - request:
+4 > GET https://api.realworld.io/api/articles/Horton-Redfort-11096/comments
+4 > Authorization: Token eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6IlRlc3QxM0BnbWFpbC5jb20iLCJ1c2VybmFtZSI6IlRlc3QyMyIsInBhc3N3b3JkIjoiJDJhJDEwJHBEUzc2aS5xU2pJZXRKSy9kb2dCQU85WDFnQU9tVDZ5Q01LaUFGQkNMNDl5bzJxMHgzNjAyIiwiYmlvIjpudWxsLCJpbWFnZSI6Imh0dHBzOi8vYXBpLnJlYWx3b3JsZC5pby9pbWFnZXMvc21pbGV5LWN5cnVzLmpwZWciLCJpYXQiOjE2NDI1OTcxOTYsImV4cCI6MTY0Nzc4MTE5Nn0.SvGqbdNHkV_eGIZV-P4V-kwgvKwo1Z3HISs7WWl3S5I
+4 > Content-Type: application/json; charset=UTF-8
+4 > Content-Length: 294
+4 > Host: api.realworld.io
+4 > Connection: Keep-Alive
+4 > User-Agent: Apache-HttpClient/4.5.13 (Java/1.8.0_301)
+4 > Accept-Encoding: gzip,deflate
+{"comment":{"id":3615,"createdAt":"2022-01-18T18:58:26.441Z","updatedAt":"2022-01-18T18:58:26.441Z","body":"Comentario de ejemplo1","author":{"username":"Test23","bio":null,"image":"https:\/\/api.realworld.io\/images\/smiley-cyrus.jpeg","following":false}},"article":{"description":"Sunspear"}}
+
+07:59:57.465 [com.intuit.karate.cli.Main.main()] DEBUG com.intuit.karate - response time in milliseconds: 334
+4 < 200
+4 < Date: Wed, 19 Jan 2022 12:59:57 GMT
+4 < Content-Type: application/json; charset=utf-8
+4 < Transfer-Encoding: chunked
+4 < Connection: keep-alive
+4 < x-powered-by: Express
+4 < access-control-allow-origin: *
+4 < etag: W/"5ba-Lf/6gcbn91hVmCJo6t9MEPcPLbU"
+4 < via: 1.1 vegur
+4 < CF-Cache-Status: DYNAMIC
+4 < Expect-CT: max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"
+4 < Report-To: {"endpoints":[{"url":"https:\/\/a.nel.cloudflare.com\/report\/v3?s=ObBLf%2BKsSWkEynqexAoRw2yqFmoilEYt%2Bx2m7uzkRhr6rn3IGuoxWWjgmszaXr6NVRJcKwyb80nYDxpj%2BOLNMxR0khDDXtEPuHPEIWyuql1GPkBh4%2FpodzxNK3BcksqHHJT%2B"}],"group":"cf-nel","max_age":604800}
+4 < NEL: {"success_fraction":0,"report_to":"cf-nel","max_age":604800}
+4 < Server: cloudflare
+4 < CF-RAY: 6d003e463da88de4-MIA
+4 < alt-svc: h3=":443"; ma=86400, h3-29=":443"; ma=86400
+{"comments":[{"id":3982,"createdAt":"2022-01-19T12:59:57.505Z","updatedAt":"2022-01-19T12:59:57.505Z","body":"Comentario de ejemplo1","author":{"username":"Test23","bio":null,"image":"https://api.realworld.io/images/smiley-cyrus.jpeg","following":false}},{"id":3866,"createdAt":"2022-01-18T21:38:46.021Z","updatedAt":"2022-01-18T21:38:46.021Z","body":"Comentario de ejemplo1","author":{"username":"Test23","bio":null,"image":"https://api.realworld.io/images/smiley-cyrus.jpeg","following":false}},{"id":3869,"createdAt":"2022-01-18T21:55:48.128Z","updatedAt":"2022-01-18T21:55:48.128Z","body":"Comentario de ejemplo1","author":{"username":"Test23","bio":null,"image":"https://api.realworld.io/images/smiley-cyrus.jpeg","following":false}},{"id":3871,"createdAt":"2022-01-18T22:00:32.345Z","updatedAt":"2022-01-18T22:00:32.345Z","body":"Comentario de ejemplo1","author":{"username":"Test23","bio":null,"image":"https://api.realworld.io/images/smiley-cyrus.jpeg","following":false}},{"id":3873,"createdAt":"2022-01-18T22:02:02.814Z","updatedAt":"2022-01-18T22:02:02.814Z","body":"Comentario de ejemplo1","author":{"username":"Test23","bio":null,"image":"https://api.realworld.io/images/smiley-cyrus.jpeg","following":false}},{"id":3875,"createdAt":"2022-01-18T22:03:26.467Z","updatedAt":"2022-01-18T22:03:26.467Z","body":"Comentario de ejemplo1","author":{"username":"Test23","bio":null,"image":"https://api.realworld.io/images/smiley-cyrus.jpeg","following":false}}]}
+07:59:57.470 [com.intuit.karate.cli.Main.main()] INFO  com.intuit.karate - [print] {
+  "comments": [
+    {
+      "id": 3982,
+      "createdAt": "2022-01-19T12:59:57.505Z",
+      "updatedAt": "2022-01-19T12:59:57.505Z",
+      "body": "Comentario de ejemplo1",
+      "author": {
+        "username": "Test23",
+        "bio": null,
+        "image": "https://api.realworld.io/images/smiley-cyrus.jpeg",
+        "following": false
+      }
+    },
+    {
+      "id": 3866,
+      "createdAt": "2022-01-18T21:38:46.021Z",
+      "updatedAt": "2022-01-18T21:38:46.021Z",
+      "body": "Comentario de ejemplo1",
+      "author": {
+        "username": "Test23",
+        "bio": null,
+        "image": "https://api.realworld.io/images/smiley-cyrus.jpeg",
+        "following": false
+      }
+    },
+    {
+      "id": 3869,
+      "createdAt": "2022-01-18T21:55:48.128Z",
+      "updatedAt": "2022-01-18T21:55:48.128Z",
+      "body": "Comentario de ejemplo1",
+      "author": {
+        "username": "Test23",
+        "bio": null,
+        "image": "https://api.realworld.io/images/smiley-cyrus.jpeg",
+        "following": false
+      }
+    },
+    {
+      "id": 3871,
+      "createdAt": "2022-01-18T22:00:32.345Z",
+      "updatedAt": "2022-01-18T22:00:32.345Z",
+      "body": "Comentario de ejemplo1",
+      "author": {
+        "username": "Test23",
+        "bio": null,
+        "image": "https://api.realworld.io/images/smiley-cyrus.jpeg",
+        "following": false
+      }
+    },
+    {
+      "id": 3873,
+      "createdAt": "2022-01-18T22:02:02.814Z",
+      "updatedAt": "2022-01-18T22:02:02.814Z",
+      "body": "Comentario de ejemplo1",
+      "author": {
+        "username": "Test23",
+        "bio": null,
+        "image": "https://api.realworld.io/images/smiley-cyrus.jpeg",
+        "following": false
+      }
+    },
+    {
+      "id": 3875,
+      "createdAt": "2022-01-18T22:03:26.467Z",
+      "updatedAt": "2022-01-18T22:03:26.467Z",
+      "body": "Comentario de ejemplo1",
+      "author": {
+        "username": "Test23",
+        "bio": null,
+        "image": "https://api.realworld.io/images/smiley-cyrus.jpeg",
+        "following": false
+      }
+    }
+  ]
+}
+ 
+07:59:57.483 [com.intuit.karate.cli.Main.main()] INFO  com.intuit.karate - [print] 6 
+07:59:57.492 [com.intuit.karate.cli.Main.main()] INFO  com.intuit.karate - [print] 3982 
+07:59:57.497 [com.intuit.karate.cli.Main.main()] DEBUG com.intuit.karate - request:
+5 > DELETE https://api.realworld.io/api/articles/Horton-Redfort-11096/comments/3982
+5 > Authorization: Token eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6IlRlc3QxM0BnbWFpbC5jb20iLCJ1c2VybmFtZSI6IlRlc3QyMyIsInBhc3N3b3JkIjoiJDJhJDEwJHBEUzc2aS5xU2pJZXRKSy9kb2dCQU85WDFnQU9tVDZ5Q01LaUFGQkNMNDl5bzJxMHgzNjAyIiwiYmlvIjpudWxsLCJpbWFnZSI6Imh0dHBzOi8vYXBpLnJlYWx3b3JsZC5pby9pbWFnZXMvc21pbGV5LWN5cnVzLmpwZWciLCJpYXQiOjE2NDI1OTcxOTYsImV4cCI6MTY0Nzc4MTE5Nn0.SvGqbdNHkV_eGIZV-P4V-kwgvKwo1Z3HISs7WWl3S5I
+5 > Content-Type: application/json; charset=UTF-8
+5 > Content-Length: 294
+5 > Host: api.realworld.io
+5 > Connection: Keep-Alive
+5 > User-Agent: Apache-HttpClient/4.5.13 (Java/1.8.0_301)
+5 > Accept-Encoding: gzip,deflate
+{"comment":{"id":3615,"createdAt":"2022-01-18T18:58:26.441Z","updatedAt":"2022-01-18T18:58:26.441Z","body":"Comentario de ejemplo1","author":{"username":"Test23","bio":null,"image":"https:\/\/api.realworld.io\/images\/smiley-cyrus.jpeg","following":false}},"article":{"description":"Sunspear"}}
+
+07:59:57.840 [com.intuit.karate.cli.Main.main()] DEBUG com.intuit.karate - response time in milliseconds: 339
+5 < 204
+5 < Date: Wed, 19 Jan 2022 12:59:58 GMT
+5 < Content-Length: 0
+5 < Connection: keep-alive
+5 < x-powered-by: Express
+5 < access-control-allow-origin: *
+5 < etag: W/"a-bAsFyilMr4Ra1hIU5PyoyFRunpI"
+5 < via: 1.1 vegur
+5 < CF-Cache-Status: DYNAMIC
+5 < Expect-CT: max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"
+5 < Report-To: {"endpoints":[{"url":"https:\/\/a.nel.cloudflare.com\/report\/v3?s=Wkmm%2BArXngdAoLnCI5%2F5YvYY8mRSoAfn5ECT%2BPVcB3jg%2FvWKi%2FnXhCoo5A3abadsvO%2FjT8JZ27WKWyPeobEn1uRcXwW9TppIN5CEA7OILykj4IIae8kikvwqC6FCr%2B%2Fe7TFV"}],"group":"cf-nel","max_age":604800}
+5 < NEL: {"success_fraction":0,"report_to":"cf-nel","max_age":604800}
+5 < Server: cloudflare
+5 < CF-RAY: 6d003e488b4e0247-MIA
+5 < alt-svc: h3=":443"; ma=86400, h3-29=":443"; ma=86400
+
+07:59:57.845 [com.intuit.karate.cli.Main.main()] DEBUG com.intuit.karate - request:
+6 > GET https://api.realworld.io/api/articles/Horton-Redfort-11096/comments
+6 > Authorization: Token eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6IlRlc3QxM0BnbWFpbC5jb20iLCJ1c2VybmFtZSI6IlRlc3QyMyIsInBhc3N3b3JkIjoiJDJhJDEwJHBEUzc2aS5xU2pJZXRKSy9kb2dCQU85WDFnQU9tVDZ5Q01LaUFGQkNMNDl5bzJxMHgzNjAyIiwiYmlvIjpudWxsLCJpbWFnZSI6Imh0dHBzOi8vYXBpLnJlYWx3b3JsZC5pby9pbWFnZXMvc21pbGV5LWN5cnVzLmpwZWciLCJpYXQiOjE2NDI1OTcxOTYsImV4cCI6MTY0Nzc4MTE5Nn0.SvGqbdNHkV_eGIZV-P4V-kwgvKwo1Z3HISs7WWl3S5I
+6 > Host: api.realworld.io
+6 > Connection: Keep-Alive
+6 > User-Agent: Apache-HttpClient/4.5.13 (Java/1.8.0_301)
+6 > Accept-Encoding: gzip,deflate
+
+
+07:59:58.156 [com.intuit.karate.cli.Main.main()] DEBUG com.intuit.karate - response time in milliseconds: 309
+6 < 200
+6 < Date: Wed, 19 Jan 2022 12:59:58 GMT
+6 < Content-Type: application/json; charset=utf-8
+6 < Transfer-Encoding: chunked
+6 < Connection: keep-alive
+6 < x-powered-by: Express
+6 < access-control-allow-origin: *
+6 < etag: W/"4c8-JemkujFlk6XiUkl8iYtBM/rqap8"
+6 < via: 1.1 vegur
+6 < CF-Cache-Status: DYNAMIC
+6 < Expect-CT: max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"
+6 < Report-To: {"endpoints":[{"url":"https:\/\/a.nel.cloudflare.com\/report\/v3?s=4SOC7e%2F2EGjWv9kBzYQvM2BpR3t%2BqjqFPRXLRU6q2lg4Ws%2Fj6Kl%2FD4njve2iwV%2BNd96DeaISsfK16UEz958GAxf5t7aqfoC1gwpycJrwlHxEGROzE7tabGJs9EL2%2Binf4V4X"}],"group":"cf-nel","max_age":604800}
+6 < NEL: {"success_fraction":0,"report_to":"cf-nel","max_age":604800}
+6 < Server: cloudflare
+6 < CF-RAY: 6d003e4aa9a58d9d-MIA
+6 < alt-svc: h3=":443"; ma=86400, h3-29=":443"; ma=86400
+{"comments":[{"id":3866,"createdAt":"2022-01-18T21:38:46.021Z","updatedAt":"2022-01-18T21:38:46.021Z","body":"Comentario de ejemplo1","author":{"username":"Test23","bio":null,"image":"https://api.realworld.io/images/smiley-cyrus.jpeg","following":false}},{"id":3869,"createdAt":"2022-01-18T21:55:48.128Z","updatedAt":"2022-01-18T21:55:48.128Z","body":"Comentario de ejemplo1","author":{"username":"Test23","bio":null,"image":"https://api.realworld.io/images/smiley-cyrus.jpeg","following":false}},{"id":3871,"createdAt":"2022-01-18T22:00:32.345Z","updatedAt":"2022-01-18T22:00:32.345Z","body":"Comentario de ejemplo1","author":{"username":"Test23","bio":null,"image":"https://api.realworld.io/images/smiley-cyrus.jpeg","following":false}},{"id":3873,"createdAt":"2022-01-18T22:02:02.814Z","updatedAt":"2022-01-18T22:02:02.814Z","body":"Comentario de ejemplo1","author":{"username":"Test23","bio":null,"image":"https://api.realworld.io/images/smiley-cyrus.jpeg","following":false}},{"id":3875,"createdAt":"2022-01-18T22:03:26.467Z","updatedAt":"2022-01-18T22:03:26.467Z","body":"Comentario de ejemplo1","author":{"username":"Test23","bio":null,"image":"https://api.realworld.io/images/smiley-cyrus.jpeg","following":false}}]}
+07:59:58.161 [com.intuit.karate.cli.Main.main()] INFO  com.intuit.karate - [print] {
+  "comments": [
+    {
+      "id": 3866,
+      "createdAt": "2022-01-18T21:38:46.021Z",
+      "updatedAt": "2022-01-18T21:38:46.021Z",
+      "body": "Comentario de ejemplo1",
+      "author": {
+        "username": "Test23",
+        "bio": null,
+        "image": "https://api.realworld.io/images/smiley-cyrus.jpeg",
+        "following": false
+      }
+    },
+    {
+      "id": 3869,
+      "createdAt": "2022-01-18T21:55:48.128Z",
+      "updatedAt": "2022-01-18T21:55:48.128Z",
+      "body": "Comentario de ejemplo1",
+      "author": {
+        "username": "Test23",
+        "bio": null,
+        "image": "https://api.realworld.io/images/smiley-cyrus.jpeg",
+        "following": false
+      }
+    },
+    {
+      "id": 3871,
+      "createdAt": "2022-01-18T22:00:32.345Z",
+      "updatedAt": "2022-01-18T22:00:32.345Z",
+      "body": "Comentario de ejemplo1",
+      "author": {
+        "username": "Test23",
+        "bio": null,
+        "image": "https://api.realworld.io/images/smiley-cyrus.jpeg",
+        "following": false
+      }
+    },
+    {
+      "id": 3873,
+      "createdAt": "2022-01-18T22:02:02.814Z",
+      "updatedAt": "2022-01-18T22:02:02.814Z",
+      "body": "Comentario de ejemplo1",
+      "author": {
+        "username": "Test23",
+        "bio": null,
+        "image": "https://api.realworld.io/images/smiley-cyrus.jpeg",
+        "following": false
+      }
+    },
+    {
+      "id": 3875,
+      "createdAt": "2022-01-18T22:03:26.467Z",
+      "updatedAt": "2022-01-18T22:03:26.467Z",
+      "body": "Comentario de ejemplo1",
+      "author": {
+        "username": "Test23",
+        "bio": null,
+        "image": "https://api.realworld.io/images/smiley-cyrus.jpeg",
+        "following": false
+      }
+    }
+  ]
+}
+ 
+07:59:59.534 [com.intuit.karate.cli.Main.main()] INFO  com.intuit.karate.Suite - <<pass>> feature 1 of 1 (0 remaining) src/test/java/conduitApp/features/homework.feature
