@@ -1,0 +1,1517 @@
+{
+	"info": {
+		"_postman_id": "a94e1c56-d46c-4aa6-85e9-b34d0c5da0cb",
+		"name": "Coleccion-Conduit",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "GET",
+			"item": [
+				{
+					"name": "Obtener articulo",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"// falla por que nuestra respuesta es un Json\r",
+									"pm.test(\"Body is correct\", function () {\r",
+									"    pm.response.to.have.body(\"response_body_string\");\r",
+									"});\r",
+									"// tiempo de respuesta del servidor\r",
+									"pm.test(\"Response time is less than 200ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+									"});\r",
+									"\r",
+									"var jsonData = pm.response.json();\r",
+									"\r",
+									"pm.test(\"Check title\", () =>{\r",
+									"    pm.expect(jsonData.article.title).equals(\"Primer Articulo\")\r",
+									"    console.log(jsonData.article.title)\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Check body\", () =>{\r",
+									"    pm.expect(jsonData.article.body).equals(\"EL primer articulo del semillero 4 Postman\")\r",
+									"    console.log(jsonData.article.body)\r",
+									"});\r",
+									"\r",
+									"\r",
+									"\r",
+									"\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{Token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{Token}}",
+								"type": "default",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "{{URL}}articles/{{slug}}",
+							"host": [
+								"{{URL}}articles"
+							],
+							"path": [
+								"{{slug}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ObtenerTags",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"if ( pm.response.code === 200) {\r",
+									"\r",
+									"    \r",
+									"    pm.test(\"Status code is 200\", function () {\r",
+									"\r",
+									"        pm.response.to.have.status(200);\r",
+									"\r",
+									"    });\r",
+									"}\r",
+									"\r",
+									"var jsonData = pm.response.json();\r",
+									"\r",
+									"\r",
+									"pm.test(\"Check tags implementations\", () =>{\r",
+									"    pm.expect(jsonData.tags[0]).equals(\"implementations\")\r",
+									"    console.log(jsonData.tags)\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Check tags codebaseShow\", () =>{\r",
+									"    pm.expect(jsonData.tags[2]).equals(\"codebaseShow\")\r",
+									"    console.log(jsonData.tags)\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response time is less than 200ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Check tags introduction\", () =>{\r",
+									"    pm.expect(jsonData.tags[3]).equals(\"introduction\")\r",
+									"    console.log(jsonData.tags)\r",
+									"});\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{Token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}tags",
+							"host": [
+								"{{URL}}tags"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Obtener articulo2",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"var jsonData = pm.response.json();\r",
+									"pm.test(\"Check description\", () =>{\r",
+									"    pm.expect(jsonData.article.description).equals(\"Casos de prueba\")\r",
+									"    console.log(jsonData.article.description)\r",
+									"});\r",
+									"\r",
+									"// verificar que este vacio\r",
+									"pm.test(\"Check_properties\" , () =>  {\r",
+									"\r",
+									"    pm.expect(jsonData.article).to.be.empty;\r",
+									"\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Check article\", () => {\r",
+									"  const responseJson = pm.response.json();\r",
+									"  pm.expect(jsonData.article.title).equals(\"Segundo articulo\")\r",
+									"  pm.expect(jsonData.article.body).equals(\"Segundo caso de prueba\")\r",
+									"});\r",
+									"\r",
+									"//\r",
+									"pm.test(\"Status code name has string\", () => {\r",
+									"  pm.response.to.have.status(\"article\");\r",
+									"});\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{Token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{Token}}",
+								"type": "default",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}articles/{{slug2}}",
+							"host": [
+								"{{URL}}articles"
+							],
+							"path": [
+								"{{slug2}}"
+							],
+							"query": [
+								{
+									"key": "",
+									"value": null,
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Esquematodoarticulos",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var esquema = {\r",
+									"  \"type\": \"object\",\r",
+									"  \"properties\": {\r",
+									"    \"articles\": {\r",
+									"      \"type\": \"array\",\r",
+									"      \"items\": [\r",
+									"        {\r",
+									"          \"type\": \"object\",\r",
+									"          \"properties\": {\r",
+									"            \"slug\": {\r",
+									"              \"type\": \"string\"\r",
+									"            },\r",
+									"            \"title\": {\r",
+									"              \"type\": \"string\"\r",
+									"            },\r",
+									"            \"description\": {\r",
+									"              \"type\": \"string\"\r",
+									"            },\r",
+									"            \"body\": {\r",
+									"              \"type\": \"string\"\r",
+									"            },\r",
+									"            \"createdAt\": {\r",
+									"              \"type\": \"string\"\r",
+									"            },\r",
+									"            \"updatedAt\": {\r",
+									"              \"type\": \"string\"\r",
+									"            },\r",
+									"            \"tagList\": {\r",
+									"              \"type\": \"array\",\r",
+									"              \"items\": [\r",
+									"                {\r",
+									"                  \"type\": \"string\"\r",
+									"                }\r",
+									"              ]\r",
+									"            },\r",
+									"            \"author\": {\r",
+									"              \"type\": \"object\",\r",
+									"              \"properties\": {\r",
+									"                \"username\": {\r",
+									"                  \"type\": \"string\"\r",
+									"                },\r",
+									"                \"bio\": {\r",
+									"                  \"type\": \"null\"\r",
+									"                },\r",
+									"                \"image\": {\r",
+									"                  \"type\": \"string\"\r",
+									"                },\r",
+									"                \"following\": {\r",
+									"                  \"type\": \"boolean\"\r",
+									"                }\r",
+									"              },\r",
+									"              \"required\": [\r",
+									"                \"username\",\r",
+									"                \"bio\",\r",
+									"                \"image\",\r",
+									"                \"following\"\r",
+									"              ]\r",
+									"            },\r",
+									"            \"favoritesCount\": {\r",
+									"              \"type\": \"integer\"\r",
+									"            },\r",
+									"            \"favorited\": {\r",
+									"              \"type\": \"boolean\"\r",
+									"            }\r",
+									"          },\r",
+									"          \"required\": [\r",
+									"            \"slug\",\r",
+									"            \"title\",\r",
+									"            \"description\",\r",
+									"            \"body\",\r",
+									"            \"createdAt\",\r",
+									"            \"updatedAt\",\r",
+									"            \"tagList\",\r",
+									"            \"author\",\r",
+									"            \"favoritesCount\",\r",
+									"            \"favorited\"\r",
+									"          ]\r",
+									"        }\r",
+									"      ]\r",
+									"    },\r",
+									"    \"articlesCount\": {\r",
+									"      \"type\": \"integer\"\r",
+									"    }\r",
+									"  },\r",
+									"  \"required\": [\r",
+									"    \"articles\",\r",
+									"    \"articlesCount\"\r",
+									"  ]\r",
+									"}\r",
+									"const response = pm.response.json();\r",
+									"pm.test('Schema is valid',() => {\r",
+									"    pm.expect(response).to.have.jsonSchema(esquema);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{Token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}articles?favorited=Test23&limit=10&offset=0",
+							"host": [
+								"{{URL}}articles"
+							],
+							"query": [
+								{
+									"key": "favorited",
+									"value": "Test23"
+								},
+								{
+									"key": "limit",
+									"value": "10"
+								},
+								{
+									"key": "offset",
+									"value": "0"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ObtenerTodoslosArticulos",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{Token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}articles?limit=10&offset=0",
+							"host": [
+								"{{URL}}articles"
+							],
+							"query": [
+								{
+									"key": "limit",
+									"value": "10"
+								},
+								{
+									"key": "offset",
+									"value": "0"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Obtenerfavoritos",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{Token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://api.realworld.io/api/articles?favorited=Test23&limit=10&offset=0",
+							"protocol": "https",
+							"host": [
+								"api",
+								"realworld",
+								"io"
+							],
+							"path": [
+								"api",
+								"articles"
+							],
+							"query": [
+								{
+									"key": "favorited",
+									"value": "Test23"
+								},
+								{
+									"key": "limit",
+									"value": "10"
+								},
+								{
+									"key": "offset",
+									"value": "0"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Obtenercomentarios",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{Token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"comment\":{\"id\":3810,\"createdAt\":\"2022-01-18T18:58:26.441Z\",\"updatedAt\":\"2022-01-18T18:58:26.441Z\",\"body\":\"Esto es un comentario\",\"author\":{\"username\":\"Test23\",\"bio\":null,\"image\":\"https://api.realworld.io/images/smiley-cyrus.jpeg\",\"following\":false}}}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://api.realworld.io/api/articles/Horton-Redfort-11096/comments",
+							"protocol": "https",
+							"host": [
+								"api",
+								"realworld",
+								"io"
+							],
+							"path": [
+								"api",
+								"articles",
+								"Horton-Redfort-11096",
+								"comments"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "POST",
+			"item": [
+				{
+					"name": "CrearArticulo2",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"// verificar variable de entorno que se esta usando\r",
+									"pm.test(\"Check the active environment\", () => {\r",
+									"  pm.expect(pm.environment.name).to.eql(\"EntornoConduit\");\r",
+									"});\r",
+									"\r",
+									"// Me permite verificar diferentes status\r",
+									"pm.test(\"Successful POST request\", function () {\r",
+									"    pm.expect(pm.response.code).to.be.oneOf([201, 422]);\r",
+									"});\r",
+									"\r",
+									"postman.setEnvironmentVariable(\"slug2\",  JSON.parse(responseBody).article.slug);\r",
+									"\r",
+									"\r",
+									"var jsonData = pm.response.json();\r",
+									"\r",
+									"pm.test(\"Check author\", () =>{\r",
+									"    pm.expect(jsonData.article.author.username).equals(\"Test23\")\r",
+									"    console.log(jsonData.article.author.username)\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Check favoritesCount\", () =>{\r",
+									"    pm.expect(jsonData.article.favoritesCount).equals(0)\r",
+									"    console.log(jsonData.article.favoritesCount)\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{Token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{Token}}",
+								"type": "default",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"article\": {\r\n        \"title\": \"Segundo articulo\",\r\n        \"slug\": \"Segundo-articulo-8924\",\r\n        \"body\": \"Segundo caso de prueba\",\r\n        \"description\": \"Casos de prueba\",\r\n        \"createdAt\": \"2022-01-06T13:48:29.612Z\",\r\n        \"updatedAt\": \"2022-01-06T13:48:29.612Z\",\r\n        \"tagList\": [],\r\n        \"favoritesCount\": 0,\r\n        \"favorited\": false,\r\n        \"author\": {\r\n            \"username\": \"TTest12\",\r\n            \"bio\": null,\r\n            \"image\": \"https://api.realworld.io/images/smiley-cyrus.jpeg\",\r\n            \"followedBy\": [],\r\n            \"following\": false\r\n        }\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}articles/",
+							"host": [
+								"{{URL}}articles"
+							],
+							"path": [
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "CrearArticulo",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"\r",
+									"var CREATED = pm.environment.get('CREATED')\r",
+									"if (CREATED === 'true'){\r",
+									"    postman.setEnvironmentVariable(\"slug\",  JSON.parse(responseBody).article.slug);\r",
+									"    pm.test(\"Status code is 200\", function () {\r",
+									"        pm.response.to.have.status(200);\r",
+									"    });\r",
+									"} else {\r",
+									"\r",
+									"    pm.test(\"Status code is 422\", function () {\r",
+									"        pm.response.to.have.status(422);\r",
+									"    });\r",
+									"}\r",
+									"\r",
+									"//Escoge alguna de los dos status\r",
+									"\r",
+									"pm.test(\"Successful POST request\", function () {\r",
+									"    pm.expect(pm.response.code).to.be.oneOf([201, 202]);\r",
+									"});\r",
+									"\r",
+									"\r",
+									"pm.test(\"Content-Type is present\", function () {\r",
+									"    pm.response.to.have.header(\"Content-Type\");\r",
+									"});\r",
+									"\r",
+									"\r",
+									"var jsonData = pm.response.json();\r",
+									"\r",
+									"pm.test(\"Check favoritedBy\", () =>{\r",
+									"    pm.expect(jsonData.article._count.favoritedBy).equals(0)\r",
+									"    console.log(jsonData.article._count.favoritedBy)\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Check tagList\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData.article.tagList).to.eql([]);\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"\r",
+									"const Token = pm.environment.get('Token');\r",
+									"const slug = pm.environment.get('slug');\r",
+									"const CREATED = pm.environment.get('CREATED')\r",
+									"\r",
+									"\r",
+									"if(CREATED === 'true')\r",
+									"{\r",
+									"  pm.sendRequest({\r",
+									"        url: `https://api.realworld.io/api/articles/${slug}`,\r",
+									"        method: 'DELETE',\r",
+									"        header: {\r",
+									"            'Authorization': `Bearer ${Token}`\r",
+									"        }\r",
+									"    })\r",
+									"\r",
+									"}\r",
+									"  "
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{Token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "",
+								"type": "default",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"article\": {\r\n        \"title\": \"Primer Articulo\",\r\n        \"slug\": \"Primer-Articulo-8924\",\r\n        \"body\": \"EL primer articulo del semillero 4 Postman\",\r\n        \"description\": \"Semillero 4\",\r\n        \"createdAt\": \"2022-01-05T22:03:28.408Z\",\r\n        \"updatedAt\": \"2022-01-05T22:03:28.408Z\",\r\n        \"tagList\": [],\r\n        \"favoritesCount\": 0,\r\n        \"favorited\": false,\r\n        \"author\": {\r\n            \"username\": \"TTest12\",\r\n            \"bio\": null,\r\n            \"image\": \"https://api.realworld.io/images/smiley-cyrus.jpeg\",\r\n            \"followedBy\": [],\r\n            \"following\": false\r\n        }\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}articles/",
+							"host": [
+								"{{URL}}articles"
+							],
+							"path": [
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Crearusuario",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"user\": {\r\n    \"username\": \"TeTest12\",\r\n    \"email\": \"Test1423@gmail.com\",\r\n    \"password\": \"Manzana321\"\r\n  }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}users",
+							"host": [
+								"{{URL}}users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Logear",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"if ( pm.response.code === 200) {\r",
+									"\r",
+									"    postman.setEnvironmentVariable(\"Token\",JSON.parse(responseBody).user.token);\r",
+									"\r",
+									"\r",
+									"    pm.test(\"Status code is 200\", function () {\r",
+									"\r",
+									"        pm.response.to.have.status(200);\r",
+									"\r",
+									"    });\r",
+									"}\r",
+									"\r",
+									"\r",
+									"    pm.test(\"Response time is less than 250ms\", function () {\r",
+									"\r",
+									"        pm.expect(pm.response.responseTime).to.be.below(250);\r",
+									"\r",
+									"    });\r",
+									"\r",
+									"var jsonData = pm.response.json();\r",
+									"\r",
+									"pm.test(\"Check email\", () =>{\r",
+									"    pm.expect(jsonData.user.email).equals(\"Test13@gmail.com\")\r",
+									"    console.log(jsonData.user.email)\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Check username\", () =>{\r",
+									"    pm.expect(jsonData.user.username).equals(\"Test23\")\r",
+									"    console.log(jsonData.user.username)\r",
+									"});\r",
+									"\r",
+									"// Me indica que halla un encabezado de respuesta\r",
+									"pm.test(\"Content-Type header is present\", () => {\r",
+									"  pm.response.to.have.header(\"Content-Type\");\r",
+									"});\r",
+									"\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "",
+								"type": "default",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"user\": {\r\n    \"email\": \"Test13@gmail.com\",\r\n    \"password\": \"Manzana123\"\r\n  }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}users/login",
+							"host": [
+								"{{URL}}users"
+							],
+							"path": [
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Esquema",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"const esquema = {\r",
+									"  \"type\": \"object\",\r",
+									"  \"properties\": {\r",
+									"    \"article\": {\r",
+									"      \"type\": \"object\",\r",
+									"      \"properties\": {\r",
+									"        \"id\": {\r",
+									"          \"type\": \"integer\"\r",
+									"        },\r",
+									"        \"slug\": {\r",
+									"          \"type\": \"string\"\r",
+									"        },\r",
+									"        \"title\": {\r",
+									"          \"type\": \"string\"\r",
+									"        },\r",
+									"        \"description\": {\r",
+									"          \"type\": \"string\"\r",
+									"        },\r",
+									"        \"body\": {\r",
+									"          \"type\": \"string\"\r",
+									"        },\r",
+									"        \"createdAt\": {\r",
+									"          \"type\": \"string\"\r",
+									"        },\r",
+									"        \"updatedAt\": {\r",
+									"          \"type\": \"string\"\r",
+									"        },\r",
+									"        \"authorId\": {\r",
+									"          \"type\": \"integer\"\r",
+									"        },\r",
+									"        \"tagList\": {\r",
+									"          \"type\": \"array\",\r",
+									"          \"items\": [\r",
+									"            {\r",
+									"              \"type\": \"string\"\r",
+									"            }\r",
+									"          ]\r",
+									"        },\r",
+									"        \"author\": {\r",
+									"          \"type\": \"object\",\r",
+									"          \"properties\": {\r",
+									"            \"username\": {\r",
+									"              \"type\": \"string\"\r",
+									"            },\r",
+									"            \"bio\": {\r",
+									"              \"type\": \"null\"\r",
+									"            },\r",
+									"            \"image\": {\r",
+									"              \"type\": \"string\"\r",
+									"            },\r",
+									"            \"following\": {\r",
+									"              \"type\": \"boolean\"\r",
+									"            }\r",
+									"          },\r",
+									"          \"required\": [\r",
+									"            \"username\",\r",
+									"            \"bio\",\r",
+									"            \"image\",\r",
+									"            \"following\"\r",
+									"          ]\r",
+									"        },\r",
+									"        \"favoritedBy\": {\r",
+									"          \"type\": \"array\",\r",
+									"          \"items\": [\r",
+									"            {\r",
+									"              \"type\": \"object\",\r",
+									"              \"properties\": {\r",
+									"                \"id\": {\r",
+									"                  \"type\": \"integer\"\r",
+									"                },\r",
+									"                \"email\": {\r",
+									"                  \"type\": \"string\"\r",
+									"                },\r",
+									"                \"username\": {\r",
+									"                  \"type\": \"string\"\r",
+									"                },\r",
+									"                \"password\": {\r",
+									"                  \"type\": \"string\"\r",
+									"                },\r",
+									"                \"image\": {\r",
+									"                  \"type\": \"string\"\r",
+									"                },\r",
+									"                \"bio\": {\r",
+									"                  \"type\": \"null\"\r",
+									"                },\r",
+									"                \"demo\": {\r",
+									"                  \"type\": \"boolean\"\r",
+									"                }\r",
+									"              },\r",
+									"              \"required\": [\r",
+									"                \"id\",\r",
+									"                \"email\",\r",
+									"                \"username\",\r",
+									"                \"password\",\r",
+									"                \"image\",\r",
+									"                \"bio\",\r",
+									"                \"demo\"\r",
+									"              ]\r",
+									"            }\r",
+									"          ]\r",
+									"        },\r",
+									"        \"favorited\": {\r",
+									"          \"type\": \"boolean\"\r",
+									"        },\r",
+									"        \"favoritesCount\": {\r",
+									"          \"type\": \"integer\"\r",
+									"        }\r",
+									"      },\r",
+									"      \"required\": [\r",
+									"        \"id\",\r",
+									"        \"slug\",\r",
+									"        \"title\",\r",
+									"        \"description\",\r",
+									"        \"body\",\r",
+									"        \"createdAt\",\r",
+									"        \"updatedAt\",\r",
+									"        \"authorId\",\r",
+									"        \"tagList\",\r",
+									"        \"author\",\r",
+									"        \"favoritedBy\",\r",
+									"        \"favorited\",\r",
+									"        \"favoritesCount\"\r",
+									"      ]\r",
+									"    }\r",
+									"  },\r",
+									"  \"required\": [\r",
+									"    \"article\"\r",
+									"  ]\r",
+									"}\r",
+									"const response = pm.response.json();\r",
+									"pm.test('Schema is valid',() => {\r",
+									"    pm.expect(response).to.have.jsonSchema(esquema);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{Token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"article\":{\r\n    \"id\":18192,\r\n    \"slug\":\"Horton-Redfort-11096\",\r\n    \"title\":\"Horton Redfort\",\r\n    \"description\":\"Braavos\",\r\n    \"body\":\"Once you’ve accepted your flaws, no one can use them against you.\",\r\n    \"createdAt\":\"2022-01-14T19:00:18.887Z\",\r\n    \"updatedAt\":\"2022-01-14T19:00:18.887Z\",\r\n    \"authorId\":11096,\r\n    \"tagList\":[\"Otro articulo 2\"],\r\n    \"author\":{\"username\":\"Test23\",\r\n    \"bio\":null,\r\n    \"image\":\"https://api.realworld.io/images/smiley-cyrus.jpeg\",\r\n    \"following\":false},\r\n    \"favoritedBy\":[{\"id\":11096,\r\n    \"email\":\"Test13@gmail.com\",\r\n    \"username\":\"Test23\",\r\n    \"password\":\"$2a$10$pDS76i.qSjIetJK/dogBAO9X1gAOmT6yCMKiAFBCL49yo2q0x3602\",\r\n    \"image\":\"https://api.realworld.io/images/smiley-cyrus.jpeg\",\r\n    \"bio\":null,\r\n    \"demo\":false}],\r\n    \"favorited\":true,\r\n    \"favoritesCount\":1}\r\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}articles/Horton-Redfort-11096/favorite",
+							"host": [
+								"{{URL}}articles"
+							],
+							"path": [
+								"Horton-Redfort-11096",
+								"favorite"
+							],
+							"query": [
+								{
+									"key": "favorited",
+									"value": "",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "DELETE",
+			"item": [
+				{
+					"name": "BorrarArticulo",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var CREATED = pm.environment.get('CREATED')\r",
+									"\r",
+									"\r",
+									"if(CREATED === 'true'){\r",
+									"\r",
+									"    pm.test(\"Status code is 204\", function () {\r",
+									"    pm.response.to.have.status(204);\r",
+									"});\r",
+									"} else {\r",
+									"\r",
+									"    pm.test(\"Status code is 404\", function () {\r",
+									"    pm.response.to.have.status(404); \r",
+									"    });\r",
+									"}\r",
+									"\r",
+									"\r",
+									"// Me indica que halla un encabezado de respuesta\r",
+									"pm.test(\"Content-Type header is present\", () => {\r",
+									"  pm.response.to.have.header(\"Content-Type\");\r",
+									"});\r",
+									"\r",
+									"// Me indica las cookies presentes \r",
+									"pm.test(\"Cookie JSESSIONID is present\", () => {\r",
+									"  pm.expect(pm.cookies.has('JSESSIONID')).to.be.true;\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response time is less than 200ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(150);\r",
+									"});\r",
+									"\r",
+									"// verificar variable de entorno que se esta usando\r",
+									"pm.test(\"Check the active environment\", () => {\r",
+									"  pm.expect(pm.environment.name).to.eql(\"EntornoConduit\");\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"const Token = pm.environment.get('Token');\r",
+									"const CREATED = pm.environment.get('CREATED');\r",
+									"\r",
+									"if(CREATED === 'true')\r",
+									"{\r",
+									"pm.sendRequest({\r",
+									"    url: 'https://api.realworld.io/api/articles/',\r",
+									"    method: 'POST',\r",
+									"    header: {\r",
+									"    'Content-Type': 'application/json',\r",
+									"    'Authorization': `Bearer ${Token}`\r",
+									"    },\r",
+									"     body: {\r",
+									"        mode: 'raw',\r",
+									"        raw: JSON.stringify({\r",
+									"    \"article\": {\r",
+									"        \"title\": \"Primer Articulo\",\r",
+									"        \"slug\": \"Primer-Articulo-8924\",\r",
+									"        \"body\": \"EL primer articulo del semillero 4 Postman\",\r",
+									"        \"description\": \"Semillero 4\",\r",
+									"        \"createdAt\": \"2022-01-05T22:03:28.408Z\",\r",
+									"        \"updatedAt\": \"2022-01-05T22:03:28.408Z\",\r",
+									"        \"tagList\": [],\r",
+									"        \"favoritesCount\": 0,\r",
+									"        \"favorited\": false,\r",
+									"        \"author\": {\r",
+									"            \"username\": \"TTest12\",\r",
+									"            \"bio\": null,\r",
+									"            \"image\": \"https://api.realworld.io/images/smiley-cyrus.jpeg\",\r",
+									"            \"followedBy\": [],\r",
+									"            \"following\": false\r",
+									"        }\r",
+									"    }\r",
+									"})\r",
+									"    }, \r",
+									"})\r",
+									"}\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{Token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Token eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6IlRlc3QxMjNAZ21haWwuY29tIiwidXNlcm5hbWUiOiJUVGVzdDEyIiwiYmlvIjpudWxsLCJpbWFnZSI6Imh0dHBzOi8vYXBpLnJlYWx3b3JsZC5pby9pbWFnZXMvc21pbGV5LWN5cnVzLmpwZWciLCJpYXQiOjE2NDE1ODQ5NzYsImV4cCI6MTY0Njc2ODk3Nn0.MbS_IOY_Nx9f8vor3FgPN3qW2m5n-tZMiwnADWVQ-wI",
+								"type": "default",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "{{URL}}articles/{{slug}}",
+							"host": [
+								"{{URL}}articles"
+							],
+							"path": [
+								"{{slug}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "BorrarArticulo2",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Response time is less than 200ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Content-Type is present\", function () {\r",
+									"    pm.response.to.have.header(\"Content-Type\");\r",
+									"});\r",
+									"\r",
+									"// verificar variable de entorno que se esta usando\r",
+									"pm.test(\"Check the active environment\", () => {\r",
+									"  pm.expect(pm.environment.name).to.eql(\"EntornoConduit\");\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"const Token = pm.environment.get('Token');\r",
+									"\r",
+									"pm.sendRequest({\r",
+									"    url: 'https://api.realworld.io/api/articles/',\r",
+									"    method: 'POST',\r",
+									"    header: {\r",
+									"    'Content-Type': 'application/json',\r",
+									"    'Authorization': `Bearer ${Token}`\r",
+									"    },\r",
+									"     body: {\r",
+									"        mode: 'raw',\r",
+									"        raw: JSON.stringify({\r",
+									"\"article\": {\r",
+									"        \"title\": \"Segundo articulo\",\r",
+									"        \"slug\": \"Segundo-articulo-8924\",\r",
+									"        \"body\": \"Segundo caso de prueba\",\r",
+									"        \"description\": \"Casos de prueba\",\r",
+									"        \"createdAt\": \"2022-01-07T21:03:36.468Z\",\r",
+									"        \"updatedAt\": \"2022-01-07T21:03:36.468Z\",\r",
+									"        \"tagList\": [],\r",
+									"        \"favoritesCount\": 0,\r",
+									"        \"favorited\": false,\r",
+									"        \"author\": {\r",
+									"            \"username\": \"TTest12\",\r",
+									"            \"bio\": null,\r",
+									"            \"image\": \"https://api.realworld.io/images/smiley-cyrus.jpeg\",\r",
+									"            \"followedBy\": [],\r",
+									"            \"following\": false\r",
+									"        }\r",
+									"    }\r",
+									"})\r",
+									"    }, \r",
+									"})"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{Token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{Token}}",
+								"type": "default",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "{{URL}}articles/{{slug2}}",
+							"host": [
+								"{{URL}}articles"
+							],
+							"path": [
+								"{{slug2}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "BorrarFavorito",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response time is less than 200ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(150);\r",
+									"});\r",
+									"\r",
+									"var jsonData = pm.response.json();\r",
+									"pm.test(\"Check id\", () =>{\r",
+									"    pm.expect(jsonData.article.id).equals(3)\r",
+									"    console.log(jsonData.article.id)\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Check title\", () =>{\r",
+									"    pm.expect(jsonData.article.title).equals(\"Create a new implementation\")\r",
+									"    console.log(jsonData.article.title)\r",
+									"});\r",
+									"\r",
+									"// verificar variable de entorno que se esta usando\r",
+									"pm.test(\"Check the active environment\", () => {\r",
+									"  pm.expect(pm.environment.name).to.eql(\"EntornoConduit\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Check authorId \", () =>{\r",
+									"    pm.expect(jsonData.article.authorId).equals(1)\r",
+									"    console.log(jsonData.article.authorId)\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{Token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}articles/Create-a-new-implementation-1/favorite",
+							"host": [
+								"{{URL}}articles"
+							],
+							"path": [
+								"Create-a-new-implementation-1",
+								"favorite"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "PUT",
+			"item": [
+				{
+					"name": "ModificarArticulo",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"\r",
+									"var jsonData = pm.response.json();\r",
+									"pm.test(\"Check body\", () =>{\r",
+									"    pm.expect(jsonData.article.body).equals(\"EL primer articulo del semillero pero con varios cambios\")\r",
+									"    console.log(jsonData.article.body)\r",
+									"});\r",
+									"\r",
+									"// para enviar una solicitud  a traves de la zona de pruebas\r",
+									"pm.sendRequest(\"https://postman-echo.com/get\", function (err, response) {\r",
+									"    console.log(response.json());\r",
+									"});\r",
+									"\r",
+									"if(pm.response.code === 200){\r",
+									"\r",
+									"    pm.test(\"Content-Type is present\", function () {\r",
+									"    pm.response.to.have.header(\"Content-Type\");\r",
+									"});\r",
+									"\r",
+									"    pm.test(\"Response time is less than 200ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(170);\r",
+									"});\r",
+									"\r",
+									"}\r",
+									"\r",
+									" \r",
+									" // Buscar Favvorito\r",
+									"var jsonData = pm.response.json();\r",
+									"pm.test(\"Check favorited\", () =>{\r",
+									"    pm.expect(jsonData.article.favorited).equals(false)\r",
+									"    console.log(jsonData.article.favorited)\r",
+									"});\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{Token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{Token}}",
+								"type": "default",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"article\": {\r\n        \"title\": \"Primer Articulo\",\r\n        \"slug\": \"Primer-Articulo-8924\",\r\n        \"body\": \"EL primer articulo del semillero pero con varios cambios\",\r\n        \"description\": \"Semillero 4\",\r\n        \"createdAt\": \"2022-01-06T14:24:38.436Z\",\r\n        \"updatedAt\": \"2022-01-06T14:24:38.436Z\",\r\n        \"tagList\": [],\r\n        \"favoritesCount\": 0,\r\n        \"favorited\": false,\r\n        \"author\": {\r\n            \"username\": \"TTest12\",\r\n            \"bio\": null,\r\n            \"image\": \"https://api.realworld.io/images/smiley-cyrus.jpeg\",\r\n            \"followedBy\": [],\r\n            \"following\": false\r\n        }\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}articles/{{slug}}",
+							"host": [
+								"{{URL}}articles"
+							],
+							"path": [
+								"{{slug}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Modificarnombre",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"if ( pm.response.code === 200) {\r",
+									"\r",
+									"    \r",
+									"    pm.test(\"Status code is 200\", function () {\r",
+									"\r",
+									"        pm.response.to.have.status(200);\r",
+									"\r",
+									"    });\r",
+									"}\r",
+									"\r",
+									"var jsonData = pm.response.json();\r",
+									"pm.test(\"Check username\", () =>{\r",
+									"    pm.expect(jsonData.user.username).equals(\"Test23\")\r",
+									"    console.log(jsonData.user.username)\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Content-Type is present\", function () {\r",
+									"    pm.response.to.have.header(\"Content-Type\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response time is less than 200ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(170);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Check email\", () =>{\r",
+									"    pm.expect(jsonData.user.email).equals(\"Test13@gmail.com\")\r",
+									"    console.log(jsonData.user.email)\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{Token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6IlRlc3QxMjNAZ21haWwuY29tIiwidXNlcm5hbWUiOiJUVGVzdDEyIiwiYmlvIjpudWxsLCJpbWFnZSI6Imh0dHBzOi8vYXBpLnJlYWx3b3JsZC5pby9pbWFnZXMvc21pbGV5LWN5cnVzLmpwZWciLCJpYXQiOjE2NDE5MTQzMzIsImV4cCI6MTY0NzA5ODMzMn0.iquitDNuXUnafd4nfkZjjqFOoWnJKXCqJ2M8e7wRI8M",
+								"type": "default",
+								"disabled": true
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"user\":{\"email\":\"Test13@gmail.com\",\r\n\"username\":\"Test23\",\r\n\"bio\":null,\r\n\"image\":null,\r\n\"token\":\"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6IlRlc3QxM0BnbWFpbC5jb20iLCJ1c2VybmFtZSI6IkhvbGExMiIsInBhc3N3b3JkIjoiJDJhJDEwJHBEUzc2aS5xU2pJZXRKSy9kb2dCQU85WDFnQU9tVDZ5Q01LaUFGQkNMNDl5bzJxMHgzNjAyIiwiYmlvIjpudWxsLCJpbWFnZSI6Imh0dHBzOi8vYXBpLnJlYWx3b3JsZC5pby9pbWFnZXMvc21pbGV5LWN5cnVzLmpwZWciLCJpYXQiOjE2NDE5MTY3NTEsImV4cCI6MTY0NzEwMDc1MX0.z28bZ_2JbLauaXjlFNlSwUdbnipbm6t1sybGoHEuTWI\",\r\n\"password\":\"\"}}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}user",
+							"host": [
+								"{{URL}}user"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
