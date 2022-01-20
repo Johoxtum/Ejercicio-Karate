@@ -227,6 +227,9 @@ Feature: Test for the home page
        And header Authorization = "Token " + token
        When method Get
        Then status 200
+       * def verifyComments = response
+       * def verifyComments = verifyComments.comments.length
+       And match verifyComments == commentariesCount - 1
        
         
 
