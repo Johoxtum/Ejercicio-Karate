@@ -23,7 +23,7 @@ Feature: Test for the home page
         And header Authorization = "Token " + token
         When method Get
         Then status 200   
-        * def id_slug = response.articles[0].slug 
+        
         * def Count = response.articles[0].favoritesCount
         
 
