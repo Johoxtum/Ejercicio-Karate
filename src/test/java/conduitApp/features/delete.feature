@@ -6,8 +6,9 @@ Background: precondiciones
 
     * def TokenResponse = callonce read('classpath:helpers/createToken.feature')
     * def token = TokenResponse.authToken
+    * def SlugResponse = callonce read('classpath:helpers/getSlug.feature')
+    * def slugg = SlugResponse.id_slug
     
-
 Scenario: Delete Favorite
 
     Given path "articles"
@@ -17,11 +18,11 @@ Scenario: Delete Favorite
     Then status 200
     * print response
 
-    * def id_slug = response.articles[0].slug
-    Given path "articles/" + id_slug + "/favorite"
+    
+    Given path "articles/" + slugg + "/favorite"
     And header Authorization = "Token " + token
     When method Delete
     Then status 200
-    * print response
+    
 
    

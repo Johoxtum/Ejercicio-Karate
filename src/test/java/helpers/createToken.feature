@@ -18,4 +18,4 @@ Background: precondiciones
         When  method Post
         Then  status 200
         * def authToken = response.user.token
-        * print authToken
+        
