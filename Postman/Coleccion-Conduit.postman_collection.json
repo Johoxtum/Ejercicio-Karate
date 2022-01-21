@@ -923,9 +923,9 @@
 									"    console.log(jsonData.article.description)\r",
 									"});\r",
 									"\r",
-									"pm.test(\"Check id\", () =>{\r",
-									"    pm.expect(jsonData.article.id).equals(18192)\r",
-									"    console.log(jsonData.article.id)\r",
+									"pm.test(\"Check tagList\", () =>{\r",
+									"    pm.expect(jsonData.article.tagList[0]).equals(\"Otro articulo 2\")\r",
+									"    console.log(jsonData.article.tagList[0])\r",
 									"});\r",
 									"\r",
 									""
